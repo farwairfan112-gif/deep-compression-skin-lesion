@@ -207,13 +207,13 @@ cd deep-compression
 pip install -r requirements.txt
 ```
 
-### Running Assignment 2 (MNIST Reproduction)
+### Running (MNIST Reproduction)
 
 Open `notebooks/A2_Deep_Compression_Reproduction.ipynb` in Jupyter or upload to Kaggle.
 
 The notebook will automatically download MNIST via `torchvision.datasets`.
 
-### Running Assignment 3 (HAM10000 Extension)
+### Running (HAM10000 Extension)
 
 1. Download the [HAM10000 dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/DBW86T) or use the [Kaggle version](https://www.kaggle.com/datasets/kmader/skin-lesion-analysis-toward-melanoma-detection)
 2. Open `notebooks/A3_Deep_Compression_Extension.ipynb`
