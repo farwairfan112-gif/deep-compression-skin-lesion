@@ -2,7 +2,6 @@
 
 PyTorch reimplementation of [Han, Mao & Dally (ICLR 2016)](https://arxiv.org/abs/1510.00149) — reproduced on MNIST, then extended to 7-class skin lesion classification on HAM10000 with clinical safety analysis.
 
-> **Authors:** Farwa Irfan · Annash Ahmed — MS Data Science, FAST-NUCES 2025
 
 ---
 
