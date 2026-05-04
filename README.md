@@ -46,7 +46,7 @@ git clone https://github.com/YOUR_USERNAME/deep-compression.git
 pip install -r requirements.txt
 ```
 
-Notebooks were developed on Kaggle T4 GPU. For HAM10000, download the dataset [here](https://www.kaggle.com/datasets/kmader/skin-lesion-analysis-toward-melanoma-detection) and update the path in the config cell at the top of the notebook.
+Notebooks were developed on Kaggle T4 GPU. For HAM10000, download the dataset [here](https://www.kaggle.com/datasets/kmader/skin-cancer-mnist-ham10000) and update the path in the config cell at the top of the notebook.
 
 ---
 
