@@ -1,1 +1,7 @@
-
+# Model checkpoints are not tracked in git (too large).
+# Download pretrained weights or train with train.py to generate them.
+# Expected files after training:
+#   resnet50_best.pth    (~90 MB, fine-tuned on HAM10000)
+#   vgg16_best.pth       (~512 MB, fine-tuned on HAM10000)
+#   resnet50_pruned.pth  (~75 MB, after magnitude pruning)
+#   vgg16_pruned.pth     (~98 MB, after magnitude pruning)
