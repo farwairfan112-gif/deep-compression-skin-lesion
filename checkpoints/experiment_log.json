@@ -1,0 +1,49 @@
+{
+  "paper": "Deep Compression (Han et al., ICLR 2016)",
+  "framework": "PyTorch",
+  "device": "cuda:0",
+  "caffe_params": {
+    "batch_size_train": 64,
+    "batch_size_test": 100,
+    "base_lr": 0.01,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "lr_policy": "inv: lr=0.01*(1+0.0001*t)^(-0.75)",
+    "max_iter": 10000,
+    "weight_init": "xavier_uniform",
+    "normalization": "scale=0.00390625 (pixels/256)"
+  },
+  "size_note": "Our PyTorch model sizes are ~29-36KB smaller than paper due to Caffe .caffemodel format overhead. Parameter counts match exactly.",
+  "LeNet-300-100": {
+    "paper_orig_kb": 1070,
+    "paper_comp_kb": 27,
+    "paper_ratio": 40,
+    "paper_ref_err": 1.64,
+    "paper_comp_err": 1.58,
+    "our_orig_kb": 1041.45,
+    "our_pruned_kb": 98.35,
+    "our_quant_kb": 29.99,
+    "our_huffman_kb": 26.2,
+    "our_ratio": 39.74,
+    "our_ref_err": 2.02,
+    "our_final_err": 2.77,
+    "our_ref_acc": 97.98,
+    "our_final_acc": 97.23
+  },
+  "LeNet-5": {
+    "paper_orig_kb": 1720,
+    "paper_comp_kb": 44,
+    "paper_ratio": 39,
+    "paper_ref_err": 0.8,
+    "paper_comp_err": 0.74,
+    "our_orig_kb": 1683.91,
+    "our_pruned_kb": 165.09,
+    "our_quant_kb": 48.98,
+    "our_huffman_kb": 43.52,
+    "our_ratio": 38.69,
+    "our_ref_err": 0.76,
+    "our_final_err": 0.97,
+    "our_ref_acc": 99.24,
+    "our_final_acc": 99.03
+  }
+}
