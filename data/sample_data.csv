@@ -1,1 +1,26 @@
-
+lesion_id,image_id,dx,dx_type,age,sex,localization
+HAM_0000118,ISIC_0027419,bkl,histo,80.0,male,scalp
+HAM_0000118,ISIC_0025030,bkl,histo,80.0,male,scalp
+HAM_0002730,ISIC_0026769,bkl,histo,80.0,male,scalp
+HAM_0002730,ISIC_0025661,bkl,histo,80.0,male,scalp
+HAM_0001466,ISIC_0031633,bkl,histo,75.0,male,ear
+HAM_0001466,ISIC_0024306,bkl,histo,75.0,male,ear
+HAM_0002080,ISIC_0029176,bkl,histo,60.0,male,face
+HAM_0001484,ISIC_0025837,bkl,histo,70.0,female,back
+HAM_0001484,ISIC_0033987,bkl,histo,70.0,female,back
+HAM_0000787,ISIC_0040868,mel,histo,55.0,female,trunk
+HAM_0000787,ISIC_0030256,mel,histo,55.0,female,trunk
+HAM_0003344,ISIC_0028552,mel,histo,70.0,male,trunk
+HAM_0002424,ISIC_0029776,nv,follow_up,45.0,female,back
+HAM_0002424,ISIC_0024899,nv,follow_up,45.0,female,back
+HAM_0000244,ISIC_0026040,nv,follow_up,30.0,male,upper extremity
+HAM_0000244,ISIC_0025914,nv,follow_up,30.0,male,upper extremity
+HAM_0000908,ISIC_0026956,nv,follow_up,35.0,female,abdomen
+HAM_0001466,ISIC_0027908,bcc,histo,75.0,male,ear
+HAM_0001466,ISIC_0025779,bcc,histo,75.0,male,ear
+HAM_0003451,ISIC_0032210,akiec,histo,65.0,male,face
+HAM_0003451,ISIC_0025670,akiec,histo,65.0,male,face
+HAM_0003112,ISIC_0027051,df,histo,50.0,female,lower extremity
+HAM_0003112,ISIC_0031946,df,histo,50.0,female,lower extremity
+HAM_0001799,ISIC_0025524,vasc,histo,45.0,male,lower extremity
+HAM_0001799,ISIC_0033397,vasc,histo,45.0,male,lower extremity
