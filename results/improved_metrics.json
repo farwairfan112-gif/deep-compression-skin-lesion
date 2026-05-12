@@ -1,0 +1,82 @@
+{
+  "note": "Post-compression (Huffman) metrics. Source: DL_FINAL.pdf (Table IV, V, VI).",
+  "vgg16": {
+    "stage": "After Huffman (Final)",
+    "size_kb": 19968,
+    "size_mb": 19.5,
+    "compression_ratio": 26.3,
+    "accuracy": 0.549,
+    "balanced_accuracy": 0.671,
+    "per_class_sensitivity": {
+      "akiec": 71.2,
+      "bcc":   80.3,
+      "bkl":   34.7,
+      "df":    75.0,
+      "mel":   76.6,
+      "nv":    51.1,
+      "vasc":  81.0
+    },
+    "delta_vs_baseline": {
+      "balanced_accuracy": "+0.7 pp",
+      "akiec": "+3.9 pp",
+      "bcc":   "-2.8 pp",
+      "bkl":   "+19.7 pp",
+      "df":    "-10.0 pp",
+      "mel":   "+1.7 pp",
+      "nv":    "+1.8 pp",
+      "vasc":  "-9.5 pp"
+    },
+    "pipeline": [
+      {"stage": "Original",     "size_kb": 524567, "ratio": 1.0,  "acc": 0.516, "bal_acc": 0.664},
+      {"stage": "After Pruning","size_kb": 97855,  "ratio": 5.4,  "acc": 0.555, "bal_acc": 0.679},
+      {"stage": "After Quant.", "size_kb": 30016,  "ratio": 17.5, "acc": 0.549, "bal_acc": 0.671},
+      {"stage": "After Huffman","size_kb": 19968,  "ratio": 26.3, "acc": 0.549, "bal_acc": 0.671}
+    ]
+  },
+  "resnet50": {
+    "stage": "After Huffman (Final)",
+    "size_kb": 12844,
+    "size_mb": 12.6,
+    "compression_ratio": 7.2,
+    "accuracy": 0.599,
+    "balanced_accuracy": 0.746,
+    "per_class_sensitivity": {
+      "akiec": 75.0,
+      "bcc":   87.3,
+      "bkl":   57.5,
+      "df":    90.0,
+      "mel":   71.9,
+      "nv":    54.5,
+      "vasc":  85.7
+    },
+    "delta_vs_baseline": {
+      "balanced_accuracy": "+5.3 pp",
+      "akiec": "+1.9 pp",
+      "bcc":   "+1.4 pp",
+      "bkl":   "+18.0 pp",
+      "df":    "0.0 pp",
+      "mel":   "+15.6 pp",
+      "nv":    "+9.4 pp",
+      "vasc":  "-9.5 pp"
+    },
+    "pipeline": [
+      {"stage": "Original",     "size_kb": 91884, "ratio": 1.0, "acc": 0.499, "bal_acc": 0.693},
+      {"stage": "After Pruning","size_kb": 74925, "ratio": 1.2, "acc": 0.587, "bal_acc": 0.754},
+      {"stage": "After Quant.", "size_kb": 29621, "ratio": 3.1, "acc": 0.599, "bal_acc": 0.746},
+      {"stage": "After Huffman","size_kb": 12844, "ratio": 7.2, "acc": 0.599, "bal_acc": 0.746}
+    ]
+  },
+  "mnist_reproduction": {
+    "note": "A2 reproduction results on MNIST (Table III in paper).",
+    "lenet_300_100": {
+      "original_size_kb": 1041, "final_size_kb": 26.2,
+      "compression_ratio": 39.7, "target_ratio": 40,
+      "final_error": 0.0277, "within_3_percent": true
+    },
+    "lenet5": {
+      "original_size_kb": 1684, "final_size_kb": 43.7,
+      "compression_ratio": 38.5, "target_ratio": 39,
+      "final_error": 0.0098, "within_3_percent": true
+    }
+  }
+}

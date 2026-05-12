@@ -1,0 +1,37 @@
+{
+  "note": "Baseline metrics before compression. Source: DL_FINAL.pdf (Table IV & VI).",
+  "vgg16": {
+    "stage": "Original (Baseline)",
+    "size_kb": 524567,
+    "size_mb": 512.3,
+    "compression_ratio": 1.0,
+    "accuracy": 0.516,
+    "balanced_accuracy": 0.664,
+    "per_class_sensitivity": {
+      "akiec": 67.3,
+      "bcc":   83.1,
+      "bkl":   15.0,
+      "df":    85.0,
+      "mel":   74.9,
+      "nv":    49.3,
+      "vasc":  90.5
+    }
+  },
+  "resnet50": {
+    "stage": "Original (Baseline)",
+    "size_kb": 91884,
+    "size_mb": 89.7,
+    "compression_ratio": 1.0,
+    "accuracy": 0.499,
+    "balanced_accuracy": 0.693,
+    "per_class_sensitivity": {
+      "akiec": 73.1,
+      "bcc":   85.9,
+      "bkl":   39.5,
+      "df":    90.0,
+      "mel":   56.3,
+      "nv":    45.1,
+      "vasc":  95.2
+    }
+  }
+}
