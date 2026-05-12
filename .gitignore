@@ -1,61 +1,27 @@
 # Python
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
-.Python
 *.egg-info/
-dist/
-build/
-.eggs/
+.env
+venv/
+.venv/
 
 # Jupyter
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 
-# Virtual environments
-venv/
-env/
-.env/
-.venv/
+# Large model files (train locally or on Kaggle)
+checkpoints/*.pth
+checkpoints/*.pt
+checkpoints/*.bin
+!checkpoints/.gitkeep
 
-# Data — do not commit raw datasets
-data/
-datasets/
-*.csv
-*.zip
-*.tar.gz
-*.hdf5
-*.h5
+# Data (download from Kaggle)
+data/HAM10000_images_part_1/
+data/HAM10000_images_part_2/
+data/HAM10000_metadata.csv
+!data/sample_data.csv
 
-# HAM10000 images (too large for git)
-HAM10000_images*/
-ISIC*/
-
-# Model weights (large files — use git-lfs or link externally)
-*.pth
-*.pt
-*.pkl
-*.ckpt
-checkpoints/
-saved_models/
-
-# Logs
-logs/
-runs/
-*.log
-tensorboard/
-
-# OS
+# System
 .DS_Store
-Thumbs.db
-desktop.ini
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# Kaggle credentials
-kaggle.json
+*.log

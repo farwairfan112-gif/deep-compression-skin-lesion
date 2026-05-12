@@ -1,0 +1,96 @@
+# ============================================================
+# Deep Compression — HAM10000 Extension
+# Config for train.py and inference.py
+# ============================================================
+
+data:
+  root: "data/"
+  metadata_csv: "data/HAM10000_metadata.csv"
+  image_dirs:
+    - "data/HAM10000_images_part_1"
+    - "data/HAM10000_images_part_2"
+  image_size: 224
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  # HAM10000 channel stats (computed from dataset)
+  normalize_mean: [0.763, 0.546, 0.570]
+  normalize_std:  [0.141, 0.152, 0.170]
+
+classes:
+  # 7-class HAM10000
+  names: ["akiec", "bcc", "bkl", "df", "mel", "nv", "vasc"]
+  high_risk: ["akiec", "bcc", "mel"]   # clinically critical
+  num_classes: 7
+
+training:
+  # --- Common ---
+  seed: 42
+  num_workers: 4
+
+  # --- VGG16 ---
+  vgg16:
+    batch_size: 16
+    total_epochs: 25
+    # Differential LR: single-phase, all layers from epoch 1
+    lr_features: 1.0e-3
+    lr_classifier: 1.0e-2
+    optimizer: adam
+    scheduler: multistep
+    scheduler_milestones: [15, 20]
+    scheduler_gamma: 0.1
+
+  # --- ResNet50 ---
+  resnet50:
+    batch_size: 32
+    phase1_epochs: 5       # frozen backbone
+    phase2_epochs: 20      # full unfreeze
+    lr_phase1: 1.0e-3
+    lr_phase2_start: 1.0e-4
+    lr_phase2_end: 1.0e-6
+    optimizer_phase1: adam
+    optimizer_phase2: sgd
+    momentum: 0.9
+    weight_decay: 5.0e-4
+    scheduler_phase2: cosine_annealing
+
+pruning:
+  conv_keep_ratio: 0.66      # keep 66% of conv weights (paper Table 4)
+  fc_keep_ratio: 0.10        # keep 10% of FC weights (paper Table 4)
+  retrain_epochs: 10
+  retrain_lr: 1.0e-3
+  # Caffe InvLR policy: lr(t) = lr0 * (1 + gamma*t)^(-power)
+  lr_policy: inv
+  lr_gamma: 1.0e-4
+  lr_power: 0.75
+  momentum: 0.9
+  weight_decay: 5.0e-4
+
+quantization:
+  conv_bits: 8               # 256 clusters for conv (paper Table 4&5)
+  fc_bits: 5                 # 32 clusters for FC (paper Table 4&5)
+  centroid_init: linear
+  qft_epochs: 10
+  qft_lr: 1.0e-4
+  momentum: 0.9
+  weight_decay: 5.0e-4
+  # Chunked CPU k-means for large layers (VGG16 classifier.0 = 102M weights)
+  cpu_kmeans_chunk_size: 50000
+  large_layer_threshold: 200000
+
+huffman:
+  # For layers with > sample_threshold non-zero weights,
+  # build tree from a sample to save memory
+  sample_threshold: 200000
+  sample_size: 200000
+
+checkpoints:
+  dir: "checkpoints/"
+  save_best: true
+  monitor: "balanced_accuracy"
+
+results:
+  dir: "results/"
+  baseline_metrics: "results/baseline_metrics.json"
+  improved_metrics: "results/improved_metrics.json"
+  training_log: "results/training_log.csv"
